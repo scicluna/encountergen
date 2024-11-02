@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Encounter Generated{% endblock %}
+
+{% block content %}
+<h2>Encounter Generated</h2>
+
+<p>
+    {% set description = encounter.description %}
+
+    {# Replace each monster name with its corresponding hyperlink #}
+    {% for monster in encounter.monster_links %}
+    {% set description = description.replace(monster.name, '<a href="' + monster.link + '" target="_blank">' +
+        monster.name + '</a>') %}
+    {% endfor %}
+
+    {{ description | safe }}
+</p>
+<a href="/">Generate Another Encounter</a>
+{% endblock %}

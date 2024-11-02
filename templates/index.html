@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Generate Pathfinder Encounter{% endblock %}
+
+{% block content %}
+<h2>Generate Pathfinder 2e Encounter</h2>
+<form action="/generate" method="POST">
+    <div>
+        <label for="low">Level Range:</label>
+        <div class="level-range">
+            <select id="low" name="low" required>
+                {% for i in range(1, 21) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            <span>to</span>
+            <select id="high" name="high" required>
+                {% for i in range(1, 21) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="weak">Weak</option>
+            <option value="normal">Normal</option>
+            <option value="severe">Severe</option>
+            <option value="extreme">Extreme</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="biome">Biome:</label>
+        <select id="biome" name="biome" required>
+            <option value="forest">Forest</option>
+            <option value="desert">Desert</option>
+            <option value="mountains">Mountains</option>
+            <option value="swamp">Swamp</option>
+            <option value="plains">Plains</option>
+            <option value="tundra">Tundra</option>
+            <option value="jungle">Jungle</option>
+            <option value="coast">Coast</option>
+            <option value="underground">Underground</option>
+            <option value="urban">Urban</option>
+            <option value="island">Island</option>
+            <option value="volcano">Volcano</option>
+            <option value="wetlands">Wetlands</option>
+            <option value="savanna">Savanna</option>
+            <option value="highlands">Highlands</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="context">Additional Context:</label>
+        <textarea id="context" name="context" rows="4" cols="50" placeholder="Any extra details..."></textarea>
+    </div>
+
+    <button type="submit">Generate Encounter</button>
+</form>
+{% endblock %}
