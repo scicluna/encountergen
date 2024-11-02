@@ -1,0 +1,29 @@
+# Ignore the virtual environment folder
+myenv/
+
+# Byte-compiled / cached Python files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment and IDE settings
+.env
+*.env
+*.sqlite3  # If you’re using SQLite as your database
+
+# Logs
+*.log
+
+# Flask-related files
+instance/
+*.pyc
+*.pyo
+
+# IDE-specific files (e.g., VSCode, PyCharm)
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# MacOS-specific
+.DS_Store
